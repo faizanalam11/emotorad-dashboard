@@ -8,6 +8,7 @@ import { IoIosHelpCircleOutline } from "react-icons/io";
 const Sidebar = ({setIsLoggedIn}) => {
   const navigate = useNavigate();
   const handleLogOut = () => {
+    localStorage.removeItem('jwt');
     setIsLoggedIn(false);
     navigate('/');
   };

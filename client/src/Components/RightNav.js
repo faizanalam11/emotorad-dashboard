@@ -8,6 +8,7 @@ import { useTheme } from './ThemeContext'
 
 const RightNav = () => {
   const { theme, toggleTheme } = useTheme();
+
   return (
     <div className='justify-center sm:justify-between flex flex-col sm:flex-row items-center gap-2'>
         <div className='flex p-2 rounded-2xl bg-white items-center cursor-pointer focus:none'>

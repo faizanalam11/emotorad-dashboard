@@ -1,6 +1,6 @@
 import './App.css';
 import { ThemeProvider } from './Components/ThemeContext';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Login from './Components/Login';
 import MainApp from './Components/MainApp';
@@ -12,6 +12,9 @@ function App() {
     const token = localStorage.getItem('jwt');
     if (token) {
       setIsLoggedIn(true);
+    }
+    else{
+      setIsLoggedIn(false);
     }
   }, []);
 
