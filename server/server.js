@@ -20,12 +20,12 @@ connectDB();
 // Initialize Google OAuth2 Client
 const CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
 const CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
-const REDIRECT_URI = 'http://localhost:5000/oauth2callback'; // The URI you registered in Google Developer Console
+const REDIRECT_URI = 'https://emotorad-dashboard-impr.onrender.com/oauth2callback'; 
 const oauth2Client = new OAuth2Client(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI);
 
 // Google OAuth Route
 app.get('/auth/google', (req, res) => {
-  const redirectUri = req.query.redirect_uri || 'http://localhost:3000/dashboard'; // Default to dashboard
+  const redirectUri = req.query.redirect_uri || 'https://emotorad-dashboard-one.vercel.app/dashboard'; // Default to dashboard
   const url = oauth2Client.generateAuthUrl({
     access_type: 'offline',
     scope: ['https://www.googleapis.com/auth/userinfo.profile', 'https://www.googleapis.com/auth/userinfo.email'],
@@ -38,7 +38,7 @@ app.get('/auth/google', (req, res) => {
 // Callback route after Google authentication
 app.get('/oauth2callback', async (req, res) => {
   const code = req.query.code;
-  const redirectUri = req.query.state || 'http://localhost:3000/dashboard'; // Default to dashboard if no state provided
+  const redirectUri = req.query.state || 'https://emotorad-dashboard-one.vercel.app/dashboard'; // Default to dashboard if no state provided
 
   try {
     // Exchange code for tokens
