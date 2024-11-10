@@ -19,7 +19,7 @@ const Login = ({ setIsLoggedIn }) => {
     // Trigger Google login logic
     // On success, set isLoggedIn to true and navigate to the dashboard
     // Simulating successful login for now
-    window.location.href = 'https://emotorad-dashboard-impr.onrender.com/auth/google?redirect_uri=http://localhost:3000/dashboard';
+    window.location.href = 'https://emotorad-dashboard-impr.onrender.com/auth/google?redirect_uri=https://emotorad-dashboard-one.vercel.app/';
     localStorage.setItem('jwt', 'your-login-token');
     setIsLoggedIn(true);
   };
