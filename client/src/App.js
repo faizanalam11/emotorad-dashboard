@@ -1,10 +1,31 @@
 import './App.css';
+import { ThemeProvider } from './Components/ThemeContext';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import Login from './Components/Login';
+import MainApp from './Components/MainApp';
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem('jwt');
+    if (token) {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
   return (
-    <div className="App">
-      <h1 className='text-red-800 text-6xl min-h-60 m-auto flex justify-center items-center'>eMotorad!</h1>
-    </div>
+    <ThemeProvider>
+      <div>
+        <div>
+          <Routes>
+            <Route path="/" element={<Login setIsLoggedIn={setIsLoggedIn} />} /> {/* Login page */}
+            <Route path="/dashboard" element={isLoggedIn ? <MainApp setIsLoggedIn={setIsLoggedIn}/> : <Login setIsLoggedIn={setIsLoggedIn} />} />
+          </Routes>
+        </div>
+      </div>
+    </ThemeProvider>
   );
 }
 
