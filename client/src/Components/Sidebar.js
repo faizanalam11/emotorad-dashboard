@@ -3,6 +3,7 @@ import { sidebarLists } from './Constants'
 import SidebarItem from './SidebarItem'
 import { useNavigate } from 'react-router-dom';
 import { IoMailOutline } from "react-icons/io5";
+import { CiLogout } from "react-icons/ci";
 import { IoIosHelpCircleOutline } from "react-icons/io";
 
 const Sidebar = ({setIsLoggedIn}) => {
@@ -14,7 +15,7 @@ const Sidebar = ({setIsLoggedIn}) => {
   };
 
   return (
-    <div className='col-span-1 lg:col-span-2 py-1 pl-1 sm:p-2 '>
+    <div className='col-span-1 lg:col-span-2 py-1 pl-1 sm:p-2'>
       <div className='bg-[#133E87] h-full rounded-md shadow-xl sm:p-2 text-white flex flex-col justify-center items-center'>
         <div className='flex flex-col justify-around items-center lg:items-start h-5/6'>
           <h1 className='capitalize text-2xl lg:text-3xl font-bold w-full text-center lg:text-left' style={{ wordBreak: 'break-word', overflowWrap: 'break-word' }}>Board.</h1>
@@ -39,7 +40,10 @@ const Sidebar = ({setIsLoggedIn}) => {
                 <span className='hidden lg:flex'>Contact US</span>
               </div>
               <div>
-                <h1 className='p-1 bg-red-500 rounded-md justify-center items-center cursor-pointer' onClick={handleLogOut}>Logout</h1>
+                <h1 className='hover:bg-red-400 hover:text-blue-950 flex gap-1 sm:p-1 bg-red-500 rounded-md justify-center items-center cursor-pointer' onClick={handleLogOut}>
+                  <CiLogout/>
+                  <span className='hidden lg:flex'>Logout</span>
+                </h1>
               </div>
             </div>
           </div>

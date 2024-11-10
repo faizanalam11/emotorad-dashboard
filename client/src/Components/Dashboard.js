@@ -4,7 +4,7 @@ import PieCharts from './PieCharts';
 
 const Dashboard = () => {
   return (
-    <div className="dashboard">
+    <div className="flex flex-wrap gap-2">
       <BarGraph/>
       <PieCharts/>
     </div>
